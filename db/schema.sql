@@ -7,17 +7,17 @@ USE employee_tracker_db;
 
 -- Creates the table "department" within employee_tracker_db --
 CREATE TABLE department (
-  id INT NOT NULL,
+  id INT AUTO_INCREMENT,
   name VARCHAR(30) NOT NULL,
   PRIMARY KEY (id)
 );
 
 -- Creates the table "role" within employee_tracker_db --
 CREATE TABLE role (
-  id INT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(30) NOT NULL,
   salary DECIMAL NOT NULL,
-  department_id INT NOT NULL,
+  department_id INT,
   FOREIGN KEY (department_id)
   REFERENCES department(id)
   ON DELETE SET NULL
@@ -25,7 +25,7 @@ CREATE TABLE role (
 
 -- Creates the table "employee" within employee_tracker_db --
 CREATE TABLE employee (
-  id INT,
+  id INT AUTO_INCREMENT PRIMARY KEY,
   first_name VARCHAR(30) NOT NULL,
   last_name VARCHAR(30) NOT NULL,
   role_id INT,
